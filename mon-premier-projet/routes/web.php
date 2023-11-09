@@ -14,5 +14,17 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', ['titre' => 'Bonjour et bienvenue dans la decouverte de Laravel ! ']);
 });
+
+
+Route::get('/ping', function () {
+    return "pong";
+});
+
+Route::get('/ping', function () {
+    return view('ping', ['titre' => 'Bonjour et bienvenue dans la decouverte de Laravel ! ']);
+});
+
+Route::get('/ping', [PingPongControleur::class, 'ping']);
+Route::get('/ping', [PingPongControleur::class, 'pong']);
